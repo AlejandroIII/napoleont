@@ -1,31 +1,31 @@
 import React from 'react'
-import {Link, graphql}  from 'gatsby'
+import { graphql}  from 'gatsby'
 import  Img from 'gatsby-image'
 import Layout from '../components/layout' 
-
+import ReactMarkdown from "react-markdown"
 
 const PostTemplate=({data}) =>  (
 
     
     <Layout>
-        <h1>{data.strapiPost.name}</h1>
-        <p><Link to={`/auth/Auth_${data.strapiPost.auth.id}`}>{data.strapiPost.auth.name}</Link></p>
         <Img fluid={data.strapiPost.image.childImageSharp.fluid}/>
-        <p style={pStyle}>{data.strapiPost.text}</p>
+        <h1>{data.strapiPost.name}</h1>
+        <p>{data.strapiPost.published}</p>
+
+        <ReactMarkdown source={data.strapiPost.text}/>
     </Layout>
 );
 
-var pStyle ={
-   whiteSpace: 'pre-wrap'
-};
 
 export default PostTemplate
 
 export const query = graphql`
-query PostTemplate($id: String!){
-    strapiPost(id: {eq: $id}) {
+query PostTemplate($id: String!){    strapiPost(id: {eq: $id}) {
+        
+        published(formatString: "MMMM DD, YYYY")
         name
         text
+        permalink
         image {
             childImageSharp {
                 fluid(maxWidth: 960){

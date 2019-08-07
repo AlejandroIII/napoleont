@@ -32,6 +32,7 @@ exports.createPages = ({ actions, graphql}) => {
             {
                 node {
                     id
+                    
                 }
             }
         }
@@ -40,7 +41,7 @@ exports.createPages = ({ actions, graphql}) => {
         //pages from each aarticle
         result.data.allStrapiPost.edges.forEach(({node}) => {
             createPage({
-                path: `/${node.id}`,
+                path: `/${node.permalink}`,
                 component: path.resolve(`src/templates/post.js`),
                 context: {
                     id: node.id,

@@ -2,31 +2,33 @@ import React from "react"
 import { Link, graphql } from "gatsby"
 
 import Layout from "../components/layout"
-//import Image from "../components/image"
+import ReactMarkdown from "react-markdown"
 import Img from 'gatsby-image'
 import SEO from "../components/seo"
+import AniLink from "gatsby-plugin-transition-link/AniLink"
 
 const IndexPage = ({data}) => (
   <Layout>
     <SEO title="Home" />
    
-    <ul>
+    <section>
+     
       {data.allStrapiPost.edges.map(document => (
-        <li key={document.node.id}>
-          <Img fluid={document.node.image.childImageSharp.fluid}/>
+        <div key={document.node.permalink}>
+          <AniLink cover direction="left" bg="#161631" to={`/${document.node.permalink}`}><Img fluid={document.node.image.childImageSharp.fluid}/></AniLink>
           <h2>
-            <Link to={`/${document.node.id}`}>{document.node.name}</Link>
+            <Link to={`/${document.node.permalink}`}>{document.node.name}</Link>
           </h2>
-          <p style={pStyle}>{document.node.text}</p>
-        </li>
+          <p>{document.node.published}</p>
+          <ReactMarkdown source={document.node.text.substring(0,400).concat("...")}/>
+         
+        </div>
       ))}
-    </ul>
-    <Link to="/page-2/">Go to page 2</Link>
+    </section>
+   
   </Layout>
 )
-var pStyle = {
-  whiteSpace: 'pre-wrap'
-};
+
 export default IndexPage
 
 export const pageQuery = graphql `  
@@ -35,6 +37,8 @@ export const pageQuery = graphql `
       edges {
         node {
           id
+          permalink
+          published(formatString: "MMMM DD, YYYY")
           name
           text
           image {
