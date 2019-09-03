@@ -1,16 +1,17 @@
 
 import React from 'react'
-import { Link, graphql } from 'gatsby'
+import {  graphql } from 'gatsby'
 import Layout from '../components/layout'
+import AniLink from 'gatsby-plugin-transition-link/AniLink';
 
 const AuthorTemplate = ({ data }) => (
     <Layout>
-      <h1>{data.strapiAuth.name}</h1>
+      <h1>{data.strapiNtauthor.name}</h1>
       <ul>
-        {data.strapiAuth.posts.map(post => (
+        {data.strapiNtauthor.posts.map(post => (
           <li key={post.id}>
             <h2>
-              <Link to={`/Post_${post.id}`}>{post.name}</Link>
+              <AniLink cover direction="left" bg="#161631" to={`/${post.permalink}`}>{post.name}</AniLink>
             </h2>
             
           </li>
@@ -23,12 +24,13 @@ export default AuthorTemplate
 
 export const query = graphql`
   query AuthorTemplate($id: String!) {
-    strapiAuth(id: { eq: $id }) {
+    strapiNtauthor(id: { eq: $id }) {
       id
       name
       posts {
         id
         name
+        permalink
       }
     }
   }

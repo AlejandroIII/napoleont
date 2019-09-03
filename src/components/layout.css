@@ -42,9 +42,10 @@ template {
   display: none;
 }
 a {
-  color:rgb(39, 39, 148);
+  color:rgb(72, 93, 214);
   background-color: transparent;
   -webkit-text-decoration-skip: objects;
+  text-decoration: none;
 }
 a:active,
 a:hover {
@@ -621,4 +622,18 @@ pre tt:after {
   html {
     font-size: 100%;
   }
+}
+
+
+footer {
+  font-family: 'Montserrat',sans-serif;
+  text-align: center;
+  font-size: .75rem;
+  color: #333;
+  opacity: 0.65;
+}
+footer a{
+    color:rgb(34, 66, 153);
+  text-decoration: none;
+  font-weight: bold;
 }

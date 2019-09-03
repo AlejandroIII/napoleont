@@ -3,16 +3,19 @@ import { graphql}  from 'gatsby'
 import  Img from 'gatsby-image'
 import Layout from '../components/layout' 
 import ReactMarkdown from "react-markdown"
+import AniLink from 'gatsby-plugin-transition-link/AniLink';
 
 const PostTemplate=({data}) =>  (
 
     
     <Layout>
-        <Img fluid={data.strapiPost.image.childImageSharp.fluid}/>
-        <h1>{data.strapiPost.name}</h1>
-        <p>{data.strapiPost.published}</p>
+        <Img fluid={data.strapiNtpost.image.childImageSharp.fluid} style={{marginBottom:"3rem"}}/>
+        <h1>{data.strapiNtpost.name}</h1>
+        <AniLink cover direction="left" bg="#161631" to={`/${data.strapiNtpost.author.permalink}`} >{data.strapiNtpost.author.name}</AniLink>
+        <br/>
+        <br/>
 
-        <ReactMarkdown source={data.strapiPost.text}/>
+        <ReactMarkdown source={data.strapiNtpost.text}/>
     </Layout>
 );
 
@@ -20,7 +23,7 @@ const PostTemplate=({data}) =>  (
 export default PostTemplate
 
 export const query = graphql`
-query PostTemplate($id: String!){    strapiPost(id: {eq: $id}) {
+query PostTemplate($id: String!){    strapiNtpost(id: {eq: $id}) {
         
         published(formatString: "MMMM DD, YYYY")
         name
@@ -28,14 +31,15 @@ query PostTemplate($id: String!){    strapiPost(id: {eq: $id}) {
         permalink
         image {
             childImageSharp {
-                fluid(maxWidth: 960){
+                fluid(maxWidth:1200){
                     ...GatsbyImageSharpFluid
                 }
             }
         }
-        auth {
+        author {
             id
             name
+            permalink
 
         }
     }

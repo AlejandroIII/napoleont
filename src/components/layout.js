@@ -8,16 +8,19 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
-
+import Img from 'gatsby-image'
 import Header from "./header"
 import "./layout.css"
 
-const Layout = ({ children }) => {
+const Layout = ({ children} ) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
+      
+      logo: file(relativePath: {eq:"logo.png"}) {
+        childImageSharp {
+          fixed(width:200){
+            ...GatsbyImageSharpFixed
+          }
         }
       }
     }
@@ -25,20 +28,24 @@ const Layout = ({ children }) => {
 
   return (
     <>
-      <Header siteTitle={data.site.siteMetadata.title} />
+      <Header>
+
+      <Img fixed={data.logo.childImageSharp.fixed} />
+      </Header>
       <div
         style={{
           margin: `0 auto`,
-          maxWidth: 960,
+          maxWidth: 1000,
           padding: `0px 1.0875rem 1.45rem`,
           paddingTop: 0,
         }}
       >
         <main>{children}</main>
         <footer>
-          © {new Date().getFullYear()}, Built with
+          © {new Date().getFullYear()}, Built by <a href="https://alejandrot.design">Alejandro Tercero</a> with
           {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
+          <a href="https://www.gatsbyjs.org">Gatsby</a> {` `}&  {` `}
+          <a href="https://www.strapi.io">Strapi</a> 
         </footer>
       </div>
     </>

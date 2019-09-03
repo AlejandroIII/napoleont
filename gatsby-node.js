@@ -27,19 +27,19 @@ exports.createPages = ({ actions, graphql}) => {
 
     const getPosts = makeRequest(graphql, `
     {
-        allStrapiPost {
+        allStrapiNtpost {
             edges 
             {
                 node {
                     id
-                    
+                    permalink
                 }
             }
         }
     }
     `).then(result=>{
         //pages from each aarticle
-        result.data.allStrapiPost.edges.forEach(({node}) => {
+        result.data.allStrapiNtpost.edges.forEach(({node}) => {
             createPage({
                 path: `/${node.permalink}`,
                 component: path.resolve(`src/templates/post.js`),
@@ -52,20 +52,21 @@ exports.createPages = ({ actions, graphql}) => {
 
     const getAuthors = makeRequest(graphql,`
     {
-        allStrapiAuth {
+        allStrapiNtauthor {
             edges
             {
                 node {
                     id
+                    permalink
                 }
             }
         }
     }
     `).then(result => {
         //pages 4 each author
-        result.data.allStrapiAuth.edges.forEach(({node}) => {
+        result.data.allStrapiNtauthor.edges.forEach(({node}) => {
             createPage({
-                path: `/auth/${node.id}`,
+                path: `/${node.permalink}`,
                 component:path.resolve(`src/templates/author.js`),
                 context: {
                     id:node.id,

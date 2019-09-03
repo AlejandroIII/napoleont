@@ -13,7 +13,7 @@ const IndexPage = ({data}) => (
    
     <section>
      
-      {data.allStrapiPost.edges.map(document => (
+      {data.allStrapiNtpost.edges.map(document => (
         <div key={document.node.permalink}>
           <AniLink cover direction="left" bg="#161631" to={`/${document.node.permalink}`}><Img fluid={document.node.image.childImageSharp.fluid}/></AniLink>
           <h2>
@@ -33,7 +33,7 @@ export default IndexPage
 
 export const pageQuery = graphql `  
   query IndexQuery {
-    allStrapiPost {
+    allStrapiNtpost {
       edges {
         node {
           id
