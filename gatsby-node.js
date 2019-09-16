@@ -74,9 +74,34 @@ exports.createPages = ({ actions, graphql}) => {
             })
         })
     });
+    const getCats = makeRequest(graphql,`
+    {
+        allStrapiNtcat {
+            edges
+            {
+                node {
+                    id
+                    catpermalink
+                }
+            }
+        }
+    }
+    `).then(result => {
+        //pages 4 each author
+        result.data.allStrapiNtcat.edges.forEach(({node}) => {
+            createPage({
+                path: `/${node.catpermalink}`,
+                component:path.resolve(`src/templates/cat.js`),
+                context: {
+                    id:node.id,
+                },
+            })
+        })
+    });
     //query 4 posts to use in creatin pages
     return Promise.all([
        getAuthors,
         getPosts,
+        getCats,
     ])
 };

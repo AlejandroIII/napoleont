@@ -1,5 +1,5 @@
 import React from "react"
-import { Link, graphql } from "gatsby"
+import { graphql } from "gatsby"
 
 import Layout from "../components/layout"
 import ReactMarkdown from "react-markdown"
@@ -14,15 +14,18 @@ const IndexPage = ({data}) => (
     <section>
      
       {data.allStrapiNtpost.edges.map(document => (
-        <div key={document.node.permalink}>
-          <AniLink cover direction="left" bg="#161631" to={`/${document.node.permalink}`}><Img fluid={document.node.image.childImageSharp.fluid}/></AniLink>
-          <h2>
-            <Link to={`/${document.node.permalink}`}>{document.node.name}</Link>
+        <div className="post-container" key={document.node.permalink}>
+          <AniLink cover direction="left" bg="#161631" to={`/${document.node.permalink}`}>
+          <Img fluid={document.node.image.childImageSharp.fluid}/>
+          <h2 className="post-title">
+           {document.node.name}
           </h2>
-          <p>{document.node.published}</p>
-          <ReactMarkdown source={document.node.text.substring(0,400).concat("...")}/>
-         
+          <p className="date">{document.node.published}</p>
+          <ReactMarkdown source={document.node.text.substring(0,150).concat("...")}/>
+          </AniLink>
+        <hr/>
         </div>
+        
       ))}
     </section>
    
@@ -33,9 +36,10 @@ export default IndexPage
 
 export const pageQuery = graphql `  
   query IndexQuery {
-    allStrapiNtpost {
+    allStrapiNtpost (sort: {fields: strapiId, order: DESC}) {
       edges {
         node {
+          strapiId
           id
           permalink
           published(formatString: "MMMM DD, YYYY")

@@ -8,14 +8,17 @@ import AniLink from 'gatsby-plugin-transition-link/AniLink';
 const PostTemplate=({data}) =>  (
 
     
-    <Layout>
+    <Layout >
+    <div className={data.strapiNtpost.ntcat.catname}>
+
         <Img fluid={data.strapiNtpost.image.childImageSharp.fluid} style={{marginBottom:"3rem"}}/>
         <h1>{data.strapiNtpost.name}</h1>
         <AniLink cover direction="left" bg="#161631" to={`/${data.strapiNtpost.author.permalink}`} >{data.strapiNtpost.author.name}</AniLink>
         <br/>
         <br/>
 
-        <ReactMarkdown source={data.strapiNtpost.text}/>
+        <ReactMarkdown source={data.strapiNtpost.text} />
+    </div>
     </Layout>
 );
 
@@ -41,6 +44,10 @@ query PostTemplate($id: String!){    strapiNtpost(id: {eq: $id}) {
             name
             permalink
 
+        }
+        ntcat {
+            id
+            catname
         }
     }
 }

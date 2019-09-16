@@ -11,6 +11,7 @@ import { useStaticQuery, graphql } from "gatsby"
 import Img from 'gatsby-image'
 import Header from "./header"
 import "./layout.css"
+import AniLink from "gatsby-plugin-transition-link/AniLink"
 
 const Layout = ({ children} ) => {
   const data = useStaticQuery(graphql`
@@ -31,6 +32,10 @@ const Layout = ({ children} ) => {
       <Header>
 
       <Img fixed={data.logo.childImageSharp.fixed} />
+      <div style={{
+          textAlign: 'right',
+          width: 'auto'
+        }} > <AniLink cover direction="left" bg="#161631" to="/poemas">Poemas</AniLink> &nbsp; <AniLink cover direction="left" bg="#161631" to="/escritos">Escritos</AniLink> </div>
       </Header>
       <div
         style={{
