@@ -30,11 +30,11 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `website-napoleont.icu`,
+        short_name: `NT`,
         start_url: `/`,
-        background_color: `#663398`,
-        theme_color: `#663398`,
+        background_color: `#485dd6`,
+        theme_color: `#485dd6`,
         display: `minimal-ui`,
         icon: `src/images/icon.png`, // This path is relative to the root of the site.
       },
