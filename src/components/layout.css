@@ -1,7 +1,9 @@
-@import url('https://fonts.googleapis.com/css?family=Libre+Baskerville:400,700|Montserrat:400,700&display=swap');
+@import url("https://use.typekit.net/jis6zpz.css");
 
 html {
-  font-family: 'Montserrat',sans-serif;
+ 
+font-weight: 400;
+font-style: normal;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
 }
@@ -205,8 +207,9 @@ html {
 }
 body {
   color: hsla(0, 0%, 0%, 0.726);
-  font-family: 'Libre Baskerville', serif;
-  font-weight: normal;
+  font-family: futura-pt, sans-serif;
+  font-weight: 400;
+  font-style: normal;
   word-wrap: break-word;
   font-kerning: normal;
   -moz-font-feature-settings: "kern", "liga", "clig", "calt";
@@ -235,11 +238,13 @@ h1 {
   padding-top: 0;
   margin-bottom: 1.45rem;
   color: inherit;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: bold;
+  font-family: reross-quadratic, sans-serif;
+font-weight: 400;
+font-style: normal;
+letter-spacing: -0.2rem;
   text-rendering: optimizeLegibility;
-  font-size: 2.25rem;
-  line-height: 1.1;
+  font-size: 3rem;
+  line-height: 1.2;
 }
 h2 {
   margin-left: 0;
@@ -251,8 +256,9 @@ h2 {
   padding-top: 0;
   margin-bottom: 1.45rem;
   color: inherit;
- font-family: 'Montserrat', sans-serif;
-  font-weight: bold;
+ font-family: reross-quadratic, sans-serif;
+font-weight: 400;
+font-style: normal;
   text-rendering: optimizeLegibility;
   font-size: 1.62671rem;
   line-height: 1.1;
@@ -267,8 +273,9 @@ h3 {
   padding-top: 0;
   margin-bottom: 1.45rem;
   color: inherit;
- font-family: 'Montserrat', sans-serif;
-  font-weight: bold;
+ font-family: reross-quadratic, sans-serif;
+font-weight: 400;
+font-style: normal;
   text-rendering: optimizeLegibility;
   font-size: 1.38316rem;
   line-height: 1.1;
@@ -283,8 +290,9 @@ h4 {
   padding-top: 0;
   margin-bottom: 1.45rem;
   color: inherit;
- font-family: 'Montserrat', sans-serif;
-  font-weight: bold;
+ font-family: reross-quadratic, sans-serif;
+font-weight: 400;
+font-style: normal;
   text-rendering: optimizeLegibility;
   font-size: 1rem;
   line-height: 1.1;
@@ -299,8 +307,9 @@ h5 {
   padding-top: 0;
   margin-bottom: 1.45rem;
   color: inherit;
- font-family: 'Montserrat', sans-serif;
-  font-weight: bold;
+ font-family: reross-quadratic, sans-serif;
+font-weight: 400;
+font-style: normal;
   text-rendering: optimizeLegibility;
   font-size: 0.85028rem;
   line-height: 1.1;
@@ -315,8 +324,9 @@ h6 {
   padding-top: 0;
   margin-bottom: 1.45rem;
   color: inherit;
- font-family: 'Montserrat', sans-serif;
-  font-weight: bold;
+ font-family: reross-quadratic, sans-serif;
+font-weight: 400;
+font-style: normal;
   text-rendering: optimizeLegibility;
   font-size: 0.78405rem;
   line-height: 1.1;
