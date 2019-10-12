@@ -16,7 +16,7 @@ const IndexPage = ({data}) => (
       {data.allStrapiNtpost.edges.map(document => (
         <div className="post-container" key={document.node.permalink}>
           <AniLink cover direction="left" bg="#161631" to={`/${document.node.permalink}`}>
-          <Img fluid={document.node.image.childImageSharp.fluid}/>
+          <Img className="img-shdw" fluid={document.node.image.childImageSharp.fluid}/>
           <h2 className="post-title">
            {document.node.name}
           </h2>
@@ -47,7 +47,7 @@ export const pageQuery = graphql `
           text
           image {
             childImageSharp {
-             fluid(maxWidth: 960) {
+             fluid(maxWidth: 1200) {
                ...GatsbyImageSharpFluid
              }
             }

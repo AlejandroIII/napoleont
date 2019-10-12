@@ -206,7 +206,8 @@ html {
   box-sizing: inherit;
 }
 body {
-  color: hsla(0, 0%, 0%, 0.726);
+  background: #0f0e22;
+  color: rgba(218, 219, 238, 0.932);
   font-family: futura-pt, sans-serif;
   font-weight: 400;
   font-style: normal;
@@ -219,14 +220,16 @@ body {
 }
 img {
   max-width: 100%;
-  margin-left: 0;
-  margin-right: 0;
+  margin-left: auto;
+  margin-right: auto;
   margin-top: 0;
   padding-bottom: 0;
   padding-left: 0;
   padding-right: 0;
   padding-top: 0;
   margin-bottom: 1.45rem;
+ 
+  
 }
 h1 {
   margin-left: 0;
@@ -495,7 +498,7 @@ hr {
   padding-right: 0;
   padding-top: 0;
   margin-bottom: calc(1.45rem - 1px);
-  background: hsla(0, 0%, 0%, 0.2);
+  background: hsla(0, 0%, 0%, 0.342);
   border: none;
   height: 1px;
 }
@@ -636,10 +639,10 @@ pre tt:after {
 
 
 footer {
-  font-family: 'Montserrat',sans-serif;
+  
   text-align: center;
   font-size: .75rem;
-  color: #333;
+  color: rgb(255, 255, 255);
   opacity: 0.65;
 }
 footer a{
@@ -652,18 +655,108 @@ footer a{
 .post-title{
   margin-top: 30px;
   margin-bottom: 5px;
+  font-size:3rem;
+  letter-spacing: -0.15rem;
 }
 
 .post-container a{
-  color: #333;
+  color: rgb(239, 239, 247);
   margin-bottom: 30px;
 }
 
 .post-container .date{
-  font-size: 75%;
-  opacity: .75;
+  font-size: 100%;
+  color:#3968be;
+  letter-spacing:0.2rem;
+  opacity: .80;
+  text-transform: uppercase;
 }
 
 .Poemas{
   text-align: center;
+}
+
+.navbar{
+  text-align: right;
+  width: auto;
+  font-family: reross-quadratic, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  
+ 
+}
+
+.navbar a{
+  color: #ffffffdd;
+  font-size:1.25rem;
+  letter-spacing: -0.01em
+}
+
+.post-author{
+  font-size: 100%;
+  color:#3968be;
+  letter-spacing:0.2rem;
+  opacity: .80;
+  text-transform: uppercase;
+}
+
+.single-post-text{
+  font-size:1.5rem;
+}
+
+.single-post-text  img , .img-shdw{
+  border:none;
+  border-radius: 15px;
+  box-shadow: 0px 5px 10px #000816;
+}
+
+.card-container{
+  
+  text-align: center;
+  border: none;
+  border-radius: 15px;
+ background: #070614;
+}
+
+.card-container .text{
+  padding: .5rem;
+  
+}
+.card-container .text h2{
+  font-size: 1.75rem;
+  letter-spacing: 0;
+}
+
+
+
+.card-container a{
+  color: #fff;
+}
+.card-container img{
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+
+.author-info{
+  
+  margin: 60px;
+  text-align: center;
+}
+.author-info .profile{
+  width:300px;
+  margin: auto;
+}
+
+.flex-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  grid-gap: 20px;
+}
+
+@media(max-width:800px){
+  .flex-grid{
+    display:grid;
+    grid-template-columns:repeat(1,1fr);
+    grid-gap: 30px;
+  }
 }

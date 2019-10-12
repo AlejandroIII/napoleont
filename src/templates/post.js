@@ -4,20 +4,21 @@ import  Img from 'gatsby-image'
 import Layout from '../components/layout' 
 import ReactMarkdown from "react-markdown"
 import AniLink from 'gatsby-plugin-transition-link/AniLink';
-
+import SEO from "../components/seo"
 const PostTemplate=({data}) =>  (
 
     
     <Layout >
+     <SEO title={`${data.strapiNtpost.name}`} />
     <div className={data.strapiNtpost.ntcat.catname}>
 
-        <Img fluid={data.strapiNtpost.image.childImageSharp.fluid} style={{marginBottom:"3rem"}}/>
-        <h1>{data.strapiNtpost.name}</h1>
-        <AniLink cover direction="left" bg="#161631" to={`/${data.strapiNtpost.author.permalink}`} >{data.strapiNtpost.author.name}</AniLink>
+        <Img className="img-shdw" fluid={data.strapiNtpost.image.childImageSharp.fluid} style={{marginBottom:"3rem"}}/>
+        <h1 className="post-title">{data.strapiNtpost.name}</h1>
+        <AniLink cover direction="left" bg="#161631" className="post-author" to={`/${data.strapiNtpost.author.permalink}`} >{data.strapiNtpost.author.name}</AniLink>
         <br/>
         <br/>
 
-        <ReactMarkdown source={data.strapiNtpost.text} />
+        <ReactMarkdown className="single-post-text" source={data.strapiNtpost.text} />
     </div>
     </Layout>
 );

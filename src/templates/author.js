@@ -2,21 +2,27 @@
 import React from 'react'
 import {  graphql } from 'gatsby'
 import Layout from '../components/layout'
-import AniLink from 'gatsby-plugin-transition-link/AniLink';
-
+import Card from '../components/card'
+import Img from 'gatsby-image'
+import SEO from "../components/seo"
 const AuthorTemplate = ({ data }) => (
     <Layout>
+     <SEO title={`Escritos - ${data.strapiNtauthor.name} `} />
+    <div className="author-info">
+    <div className="profile">
+<Img className="" fluid={data.strapiNtauthor.profile.childImageSharp.fluid}/>
+    </div>
       <h1>{data.strapiNtauthor.name}</h1>
-      <ul>
+    </div>
+    <hr/>
+      <div className="flex-grid">
         {data.strapiNtauthor.posts.map(post => (
-          <li key={post.id}>
-            <h2>
-              <AniLink cover direction="left" bg="#161631" to={`/${post.permalink}`}>{post.name}</AniLink>
-            </h2>
+         
             
-          </li>
+          <Card key={post.id} permalink={post.permalink} name={post.name} date={post.published} image={post.image.childImageSharp.fluid}></Card>
+         
         ))}
-      </ul>
+      </div>
     </Layout>
   )
   
@@ -27,10 +33,25 @@ export const query = graphql`
     strapiNtauthor(id: { eq: $id }) {
       id
       name
+      profile {
+        childImageSharp{
+          fluid(maxWidth:300){
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
       posts {
         id
-        name
         permalink
+        published(formatString: "MMMM DD, YYYY")
+        name
+        image {
+          childImageSharp {
+              fluid(maxWidth:1200){
+                  ...GatsbyImageSharpFluid
+              }
+          }
+      }
       }
     }
   }

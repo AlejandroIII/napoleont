@@ -2,21 +2,22 @@
 import React from 'react'
 import {  graphql } from 'gatsby'
 import Layout from '../components/layout'
-import AniLink from 'gatsby-plugin-transition-link/AniLink';
-
+import SEO from '../components/seo'
+import Card from '../components/card'
 const CatTemplate = ({ data }) => (
     <Layout>
+    <SEO title={`${data.strapiNtcat.catname}`} />
+    <div className="author-info">
+
       <h1>{data.strapiNtcat.catname}</h1>
-      <ul>
+    </div>
+      <div className="flex-grid">
         {data.strapiNtcat.ntposts.map(post => (
-          <li key={post.id}>
-            <h2>
-              <AniLink cover direction="left" bg="#161631" to={`/${post.permalink}`}>{post.name}</AniLink>
-            </h2>
-            
-          </li>
+          
+            <Card key={post.id} permalink={post.permalink} name={post.name} date={post.published} image={post.image.childImageSharp.fluid}></Card>
+          
         ))}
-      </ul>
+      </div>
     </Layout>
   )
   
@@ -29,8 +30,16 @@ export const query = graphql`
       catname
       ntposts {
         id
-        name
         permalink
+        published(formatString: "MMMM DD, YYYY")
+        name
+        image {
+          childImageSharp {
+              fluid(maxWidth:1200){
+                  ...GatsbyImageSharpFluid
+              }
+          }
+      }
       }
     }
   }

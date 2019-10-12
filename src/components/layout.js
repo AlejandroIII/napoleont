@@ -32,10 +32,7 @@ const Layout = ({ children} ) => {
       <Header>
 
       <Img fixed={data.logo.childImageSharp.fixed} />
-      <div style={{
-          textAlign: 'right',
-          width: 'auto'
-        }} > <AniLink cover direction="left" bg="#161631" to="/poemas">Poemas</AniLink> &nbsp; <AniLink cover direction="left" bg="#161631" to="/escritos">Escritos</AniLink> </div>
+      <div className="navbar" > <AniLink cover direction="left" bg="#161631" to="/poemas">Poemas</AniLink> &nbsp; <AniLink cover direction="left" bg="#161631" to="/escritos">Escritos</AniLink> </div>
       </Header>
       <div
         style={{
