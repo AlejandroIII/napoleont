@@ -1,5 +1,4 @@
 @import url("https://use.typekit.net/jis6zpz.css");
-
 html {
  
 font-weight: 400;
@@ -241,10 +240,10 @@ h1 {
   padding-top: 0;
   margin-bottom: 1.45rem;
   color: inherit;
-  font-family: reross-quadratic, sans-serif;
-font-weight: 400;
+  font-family: big-caslon-fb, serif;
+font-weight: 700;
 font-style: normal;
-letter-spacing: -0.2rem;
+
   text-rendering: optimizeLegibility;
   font-size: 3rem;
   line-height: 1.2;
@@ -259,8 +258,8 @@ h2 {
   padding-top: 0;
   margin-bottom: 1.45rem;
   color: inherit;
- font-family: reross-quadratic, sans-serif;
-font-weight: 400;
+ font-family: big-caslon-fb, serif;
+font-weight: 700;
 font-style: normal;
   text-rendering: optimizeLegibility;
   font-size: 1.62671rem;
@@ -276,8 +275,8 @@ h3 {
   padding-top: 0;
   margin-bottom: 1.45rem;
   color: inherit;
- font-family: reross-quadratic, sans-serif;
-font-weight: 400;
+ font-family: big-caslon-fb, serif;
+font-weight: 700;
 font-style: normal;
   text-rendering: optimizeLegibility;
   font-size: 1.38316rem;
@@ -293,8 +292,8 @@ h4 {
   padding-top: 0;
   margin-bottom: 1.45rem;
   color: inherit;
- font-family: reross-quadratic, sans-serif;
-font-weight: 400;
+ font-family: big-caslon-fb, serif;
+font-weight: 700;
 font-style: normal;
   text-rendering: optimizeLegibility;
   font-size: 1rem;
@@ -310,7 +309,7 @@ h5 {
   padding-top: 0;
   margin-bottom: 1.45rem;
   color: inherit;
- font-family: reross-quadratic, sans-serif;
+ font-family: big-caslon-fb, serif;
 font-weight: 400;
 font-style: normal;
   text-rendering: optimizeLegibility;
@@ -327,8 +326,8 @@ h6 {
   padding-top: 0;
   margin-bottom: 1.45rem;
   color: inherit;
- font-family: reross-quadratic, sans-serif;
-font-weight: 400;
+ font-family: big-caslon-fb, serif;
+font-weight: 700;
 font-style: normal;
   text-rendering: optimizeLegibility;
   font-size: 0.78405rem;
@@ -622,7 +621,7 @@ code:before,
 code:after,
 tt:before,
 tt:after {
-  letter-spacing: -0.2em;
+ 
   content: " ";
 }
 pre code:before,
@@ -656,7 +655,7 @@ footer a{
   margin-top: 30px;
   margin-bottom: 5px;
   font-size:3rem;
-  letter-spacing: -0.15rem;
+ 
 }
 
 .post-container a{
@@ -679,7 +678,7 @@ footer a{
 .navbar{
   text-align: right;
   width: auto;
-  font-family: reross-quadratic, sans-serif;
+  font-family: big-caslon-fb, serif;
   font-weight: 400;
   font-style: normal;
   
@@ -689,7 +688,7 @@ footer a{
 .navbar a{
   color: #ffffffdd;
   font-size:1.25rem;
-  letter-spacing: -0.01em
+  
 }
 
 .post-author{
